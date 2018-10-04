@@ -43,7 +43,14 @@ color white = color(255);
   Button button4;
   Button button5;
   Button button6;
- 
+  Button button2b;
+  Button button3b;
+  Button button4b;
+  Button button5b;
+  Button button6b;
+  Button button7b;
+  Button buttonR;
+  
  //Image values
  
  int zero = 0;
@@ -104,6 +111,7 @@ void draw(){ //<>//
     image(imgGame1BG, zero, zero);
     image(imgGame1Girl,zero,zero);
     button2=new Button("Click to start programming",3,2);
+    button2b=new Button("Back",4,0);
     }
   if(startPage==false && game1Intro==false && game1==false && game2==false && game2Intro==false && animation==false && game3==false && game3Intro==false){
     if(aMode==true){
@@ -415,6 +423,7 @@ void draw(){ //<>//
       if(game1==true && game2==false){
         image(imgGame1Girl, zero, zero, width, height);
         button3=new Button("Click to continue",3,3);
+        button3b=new Button("Back",4,1);
         }
        }
     }
@@ -426,16 +435,19 @@ void draw(){ //<>//
      image(imgGame2Girl,zero,zero);
      game2=false;
      button4=new Button("Click to start drawing",3,4);
+     button4b=new Button("Back",4,2);
      }
    if(game2==true && animation==false ){
        image(imgGame2Girl,zero,zero);
      button5=new Button("Click to continue",3,5);
+     button5b=new Button("Back",4,3);
     
      }
    if(game3Intro==true){
      image(imgGame3BG, zero, zero, width, height);
      image(imgGame3Girl,zero,zero);
      button6=new Button("Click to start the game",3,6);
+     button6b=new Button("Back",4,4);
     }
    if(game3==true && animation==false){
       image(imgGame3BG, zero, zero, width, height);
@@ -492,6 +504,7 @@ void draw(){ //<>//
           game3=false;
           animation=true;
           }
+        button7b=new Button("Back",4,5);
        }
         if(animation==true && game3==false){
           background(white);
@@ -595,6 +608,7 @@ void draw(){ //<>//
   animation=false;
   endPage=true;
   image(imgEndPage,zero,zero);
+  buttonR=new Button("Reset",4,0);
   }
   
         
@@ -629,23 +643,34 @@ void draw(){ //<>//
 
 void mouseClicked(){
   //global
-  if(startPage==true){
+  if(startPage==true && endPage==false){
     button1.mouseClicked();
     }
-  else if(game1Intro==true){
+  else if(game1Intro==true && endPage==false){
     button2.mouseClicked();
+    button2b.mouseClicked();
     }
-   else if(game1==true && aMode==true){
+   else if(game1==true && aMode==true && endPage==false){
     button3.mouseClicked();
+    button3b.mouseClicked();
     }
-   else if(game2Intro==true && aMode==false){
+   else if(game2Intro==true && aMode==false && endPage==false){
     button4.mouseClicked();
+    button4b.mouseClicked();
     }
-   else if(game2==true && aMode==false ){
+   else if(game2==true && aMode==false && endPage==false){
     button5.mouseClicked();
+    button5b.mouseClicked();
     }
-   else if(game3Intro==true ){
+   else if(game3Intro==true && endPage==false){
     button6.mouseClicked();
+    button6b.mouseClicked();
+    }
+   else if(game3==true  && endPage==false){
+    button7b.mouseClicked();
+    }
+   else if(endPage==true ){
+    buttonR.mouseClicked();
     }
  
   //game 1+2
@@ -847,7 +872,5 @@ void mouseReleased (){
         aBoxProgMove=zero; 
         aStrokeSizeMove=zero;
         aShapeMove=zero;
-        }
-    }
-    
-  
+        } 
+      }
