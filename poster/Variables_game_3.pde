@@ -27,3 +27,7 @@ float cborderright =700;
 // points
 
 int cpoint = 0;
+int cGoal = 1000; //point goal of the game
+int cPointhit = 0; // when you get hit
+
+int cGoalReset = -400; // the position of the goal when you get hit, to make it reset

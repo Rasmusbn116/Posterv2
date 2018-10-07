@@ -47,3 +47,7 @@ int dtextpos6 = -100;
 int dtextpos7 = -100;
 int dtextpos8 =1000;
 int dtextpos9 =-270;
+
+float dTextSpeed = random(4,8); // speed of the different jobs moving
+
+float dThousand = 1000;

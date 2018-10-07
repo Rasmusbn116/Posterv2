@@ -491,16 +491,16 @@ void draw(){ //<>//
         obstacle[i].show();
         
          }
-        if ( cpoint == 0){
-          cimgpos = -400;}
+        if ( cpoint == cPointhit){
+          cimgpos = cGoalReset;}
         if (cboxposx <= 23){
           cboxposx += 30;}
         if (cboxposx >= 820){
           cboxposx -=agamesizeone ;}
       
         
-        if(cpoint==1000){
-          cpoint=1000;
+        if(cpoint==cGoal){
+          cpoint=cGoal;
           game3=false;
           animation=true;
           }
@@ -558,36 +558,36 @@ void draw(){ //<>//
           
           // all advertising
           if (dtextpos2 >=flowstartcrit){
-            flowstart1+=4; }
+            flowstart1+=dTextSpeed; }
           if (flowstart1 >zero){
-            flowstart2+=3; }
+            flowstart2+=dTextSpeed; }
           if (flowstart2 > zero) {
-            flowstart3+=3; }
+            flowstart3+=dTextSpeed; }
           if (flowstart3 >zero){
-            flowstart4+=5; }
+            flowstart4+=dTextSpeed; }
           if (flowstart4>zero){
-            flowstart5 +=4;}
+            flowstart5 +=dTextSpeed;}
           if (flowstart5 >zero){
-            flowstart7 +=4; }
+            flowstart7 +=dTextSpeed; }
           if (flowstart7 >zero){
-            flowstart6 +=3; }
+            flowstart6 +=dTextSpeed; }
           if (flowstart6 >zero) {
-            flowstart8 += 4; }
+            flowstart8 += dTextSpeed; }
           if (flowstart8>zero){
-            flowstart9 +=6; }
+            flowstart9 +=dTextSpeed; }
           if (flowstart9>zero){
-            flowstart10 +=5; }
+            flowstart10 +=dTextSpeed; }
           if (flowstart10>zero){
-            flowstart11 +=5; }
+            flowstart11 +=dTextSpeed; }
           
           //more textmoving
            
           if (flowstart4 >zero){
-            dtextpos1 += 1000;
-            dtextpos2 -= 1000;}
+            dtextpos1 += dThousand;
+            dtextpos2 -= dThousand;}
           
           if (flowstart11 >900){
-            boxpos1x -= 1000; }
+            boxpos1x -= dThousand; }
           image(dglass,boxpos3x,boxpos1y);  
           
           if (boxpos1x<zero){
