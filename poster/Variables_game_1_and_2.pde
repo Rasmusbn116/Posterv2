@@ -104,3 +104,68 @@ int aShapeWH=30;
 
 float aBoxDrawResetX=437;
 float aBoxDrawResetY=175;
+
+int halfBoxWH=20;
+
+float textPos1 = 23;
+float textPos2 = 610.5;
+float textPos3 = 52;
+float textPos4 = 186;
+float textPos5 = 300;
+float textPos6 = 422;
+
+int textSize1 = 58;
+int textSize2 = 25;
+int textSize3 = 20;
+int textSize4 = 50;
+int textSize5 = 24;
+
+float aResetRectX = 170;
+float aResetRectY = 160;
+float aResetRectW = 340;
+float aResetRectH = 57.5;
+
+float aUIRectY = 120.5;
+float aUIRectW = 300;
+float aUIRectH = 700;
+
+float aTextSelectorX = 530.5;
+float aTextSelectorY1 = 150.5;
+float aTextSelectorY2 = 350.5;
+float aTextSelectorY3 = 550.5;
+float aTextSelectorW = 290;
+float aTextSelectorH = 790;
+
+int trans1= 50;
+int trans2= 150;
+
+ //border positions
+ 
+ float aborder = 20.5;
+ float abordereight = 820.5;
+ float agameborderfive = 520.5; 
+ float agamebordderhundredandtwenty = 120.5;
+ 
+  //border positions -10
+ 
+ float aborderSec = 30.5;
+ float abordereightSec = 810.5;
+ float agameborderfiveSec = 510.5; 
+ float agamebordderhundredandtwentySec = 230.5;
+ 
+// different sizes 
+ float agamesizeeight = 800;
+ float agamesizeSeven = 700;
+ float agamesizefive = 500;
+ float agamesizeone = 100;
+ float agamesizethree = 300;
+ float agamesizetwo = 200;
+ 
+// UI text criterias
+ float atextcrityone = 90.5;
+ float atextcritytwo = 150.5;
+// Voiddraw rect
+ float aRectVoidX = 170;
+float aRectVoidY = 160;
+float aRectVoidW = 340;
+float aRectVoidH = 58;

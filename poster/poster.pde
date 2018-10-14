@@ -55,22 +55,7 @@ color white = color(255);
  
  int zero = 0;
  
- //border positions
- 
- float aborder = 20.5;
- float abordereight = 820.5;
- float agameborderfive = 520.5; 
- 
-// different sizes 
- float agamesizeeight = 800;
- float agamesizefive = 500;
- float agamesizeone = 100;
- float agamesizethree = 300;
- float agamesizetwo = 200;
- 
-// UI text criterias
- float atextcrityone = 90.5;
- float atextcritytwo = 150.5;
+
  
 void setup(){ //<>//
   //load pictures/fonts
@@ -122,24 +107,24 @@ void draw(){ //<>//
       image(imgGame2BG, zero, zero);
       }
     strokeWeight(5);
-    fill(255);
+    fill(white);
     rect(aborder,aborder,agamesizeeight,agamesizeeight);
     rect(agameborderfive,aborder,agamesizethree,agamesizeeight);
     rect(agameborderfive,aborder,agamesizethree,agamesizetwo);
     rect(aborder,aborder,agamesizefive,agamesizeone);
-    rect(aborder,agamesizetwo,agamesizefive,agamesizeone);
+    rect(aborder,agamebordderhundredandtwenty,agamesizefive,agamesizeone);
   
     //UI text
     textFont(sansFont);
-    textSize(58);
+    textSize(textSize1 );
     fill(pink);
-    text("DRAWING PROGRAM",23,atextcrityone);
-    text("CODE",610.5,atextcrityone);
-    textSize(25);
-    text("COLOR",52,atextcritytwo);
-    text("SIZE",186,atextcritytwo);
-    text("SHAPE",300,atextcritytwo);
-    text("RESET",422,atextcritytwo);
+    text("DRAWING PROGRAM",textPos1 ,atextcrityone);
+    text("CODE",textPos2 ,atextcrityone);
+    textSize(textSize2 );
+    text("COLOR",textPos3,atextcritytwo);
+    text("SIZE",textPos4,atextcritytwo);
+    text("SHAPE",textPos5,atextcritytwo);
+    text("RESET",textPos6,atextcritytwo);
     textFont(codeFont);
     if(aMode==true){
       game1=true;
@@ -153,20 +138,20 @@ void draw(){ //<>//
     //UI Filler
     noStroke();
     fill(white);  //background for UI
-    rect(170,160,340,57.5); //reseting settings
+    rect(aResetRectX ,aResetRectY ,aResetRectW ,aResetRectH ); //reseting settings
     
     
     //UI
     stroke(zero);
-    strokeWeight(5);
-    rect(agameborderfive,120.5,300,700);
+    strokeWeight(aStrokeWeight5);
+    rect(agameborderfive,aUIRectY ,aUIRectW,aUIRectH);
     
     //UItext
     fill(aBlack);
-    textSize(20);
-    text("if (box(X) = color(Y));                   then(colorSelector(Z)=color(Y));",530.5,150.5,290,790);
-    text("if (box(X) = stroke(Y);                   then(strokeSelector(Z)=stroke(Y);" ,530.5,350.5,290,790);  
-    text("if (box(X) = shape(Y);                    then(shapeSelector(Z)=shape(Y);" ,530.5,550.5,290,790);  
+    textSize(textSize3);
+    text("if (box(X) = color(Y));                   then(colorSelector(Z)=color(Y));",aTextSelectorX ,aTextSelectorY1,aTextSelectorW ,aTextSelectorH );
+    text("if (box(X) = stroke(Y);                   then(strokeSelector(Z)=stroke(Y);" ,aTextSelectorX ,aTextSelectorY2,aTextSelectorW ,aTextSelectorH );  
+    text("if (box(X) = shape(Y);                    then(shapeSelector(Z)=shape(Y);" ,aTextSelectorX ,aTextSelectorY3,aTextSelectorW ,aTextSelectorH );  
     
     
     //Color Squares
@@ -185,7 +170,7 @@ void draw(){ //<>//
     line(aStrokeDraw2X,aStrokeDrawY1,aStrokeDraw2X,aStrokeDrawY2);
     strokeWeight(aStrokeDraw3);
     line(aStrokeDraw3X,aStrokeDrawY1,aStrokeDraw3X,aStrokeDrawY2);
-    strokeWeight(5); 
+    strokeWeight(aStrokeWeight5); 
     
     //Shapes
     line(aShapeLineDrawX,aShapeLineDrawY1,aShapeLineDrawX,aShapeLineDrawY2);
@@ -228,20 +213,20 @@ void draw(){ //<>//
       if(aMode==true){
           if(mouseX> agameborderfive+aBoxWH && mouseX < abordereight - aBoxWH && mouseY > aborder + aBoxWH && mouseY < abordereight - aBoxWH){
             if((mousePressed) && ( mouseX > aBoxProgRedX && mouseX <aBoxProgRedX+aBoxWH && mouseY>aBoxProgRedY && mouseY<aBoxProgRedY+aBoxWH) && aBoxProgMove == 0 || aBoxProgMove == 1) {
-              aBoxProgRedX=mouseX-20; 
-              aBoxProgRedY=mouseY-20;
+              aBoxProgRedX=mouseX-halfBoxWH; 
+              aBoxProgRedY=mouseY-halfBoxWH;
               aBoxProgMove=1;
               }
                     
             else if ((mousePressed) && (mouseX > aBoxProgBlueX && mouseX <aBoxProgBlueX+aBoxWH && mouseY>aBoxProgBlueY && mouseY<aBoxProgBlueY+aBoxWH) && aBoxProgMove == 0 || aBoxProgMove == 2) {
-              aBoxProgBlueX=mouseX-20; 
-              aBoxProgBlueY=mouseY-20;
+              aBoxProgBlueX=mouseX-halfBoxWH; 
+              aBoxProgBlueY=mouseY-halfBoxWH;
               aBoxProgMove=2;
               }
               
             else if ((mousePressed) && (mouseX > aBoxProgGreenX && mouseX <aBoxProgGreenX+aBoxWH && mouseY>aBoxProgGreenY && mouseY<aBoxProgGreenY+aBoxWH) && aBoxProgMove == 0 || aBoxProgMove == 3) {
-              aBoxProgGreenX=mouseX-20; 
-              aBoxProgGreenY=mouseY-20;
+              aBoxProgGreenX=mouseX-halfBoxWH; 
+              aBoxProgGreenY=mouseY-halfBoxWH;
               aBoxProgMove=3;
               }
             }
@@ -263,26 +248,26 @@ void draw(){ //<>//
     if(mouseX> agameborderfive+aBoxWH && mouseX < abordereight - aBoxWH && mouseY > aborder + aBoxWH && mouseY < abordereight - aBoxWH){
         if((mousePressed) && ( mouseX > aStrokeSize1X-15 && mouseX <aStrokeSize1X+15 && mouseY>aStrokeSize1Y1 && mouseY<aStrokeSize1Y2) && aStrokeSizeMove == 0 || aStrokeSizeMove == 1) {
         aStrokeSize1X=mouseX; 
-        aStrokeSize1Y1=mouseY-20;
-        aStrokeSize1Y2=mouseY+20;
+        aStrokeSize1Y1=mouseY-halfBoxWH;
+        aStrokeSize1Y2=mouseY+halfBoxWH;
         aStrokeSizeMove=1;
         }
         if((mousePressed) && ( mouseX > aStrokeSize5X-15 && mouseX <aStrokeSize5X+15 && mouseY>aStrokeSize5Y1 && mouseY<aStrokeSize5Y2) && aStrokeSizeMove == 0 || aStrokeSizeMove == 2) {
         aStrokeSize5X=mouseX; 
-        aStrokeSize5Y1=mouseY-20;
-        aStrokeSize5Y2=mouseY+20;
+        aStrokeSize5Y1=mouseY-halfBoxWH;
+        aStrokeSize5Y2=mouseY+halfBoxWH;
         aStrokeSizeMove=2;
         }
         if((mousePressed) && ( mouseX > aStrokeSize10X-15 && mouseX <aStrokeSize10X+15 && mouseY>aStrokeSize10Y1 && mouseY<aStrokeSize10Y2) && aStrokeSizeMove == 0 || aStrokeSizeMove == 3) {
         aStrokeSize10X=mouseX; 
-        aStrokeSize10Y1=mouseY-20;
-        aStrokeSize10Y2=mouseY+20;
+        aStrokeSize10Y1=mouseY-halfBoxWH;
+        aStrokeSize10Y2=mouseY+halfBoxWH;
         aStrokeSizeMove=3;
         }
         if((mousePressed) && ( mouseX > aStrokeSize15X-15 && mouseX <aStrokeSize15X+15 && mouseY>aStrokeSize15Y1 && mouseY<aStrokeSize15Y2)  && aStrokeSizeMove == 0 || aStrokeSizeMove == 4) {
         aStrokeSize15X=mouseX; 
-        aStrokeSize15Y1=mouseY-20;
-        aStrokeSize15Y2=mouseY+20;
+        aStrokeSize15Y1=mouseY-halfBoxWH;
+        aStrokeSize15Y2=mouseY+halfBoxWH;
         aStrokeSizeMove=4;
         }
       }
@@ -290,7 +275,7 @@ void draw(){ //<>//
   
   //Moving shapes
   noFill();
-  strokeWeight(5);
+  strokeWeight(aStrokeWeight5);
   ellipse(aShapeEllipseProgX,aShapeEllipseProgY,aShapeWH,aShapeWH);
   rect(aShapeRectProgX,aShapeRectProgY,aShapeWH,aShapeWH);
   
@@ -299,8 +284,8 @@ void draw(){ //<>//
   if(aMode==true){
       if(mouseX> agameborderfive+aBoxWH && mouseX < abordereight - aBoxWH && mouseY > aborder + aBoxWH && mouseY < abordereight - aBoxWH){
           if((mousePressed) && ( mouseX > aShapeRectProgX && mouseX <aShapeRectProgX+aShapeWH && mouseY>aShapeRectProgY && mouseY<aShapeRectProgY+aShapeWH) && aShapeMove == 0 || aShapeMove == 1) {
-             aShapeRectProgX=mouseX-20; 
-             aShapeRectProgY=mouseY-20;
+             aShapeRectProgX=mouseX-halfBoxWH; 
+             aShapeRectProgY=mouseY-halfBoxWH;
              aShapeMove=1;
           }
           if((mousePressed) && sq(mouseX-aShapeEllipseProgX)+sq(mouseY-aShapeEllipseProgY)<sq(aShapeWH)/4&& aShapeMove == 0 || aShapeMove == 2){
@@ -360,8 +345,8 @@ void draw(){ //<>//
       }
          
   //numbers in squares
-  textSize(50);
-  fill(0,50);
+  textSize(textSize4);
+  fill(aBlack,trans1);
   text("1",aBoxProgColor1X+8,aBoxProgColor1Y + aBoxWH-3);
   text("2",aBoxProgColor2X+8,aBoxProgColor2Y + aBoxWH-3);
   text("3",aBoxProgColor3X+8,aBoxProgColor3Y + aBoxWH-3);
@@ -393,31 +378,31 @@ void draw(){ //<>//
   
   // Drawing line
     if(aMode==false){
-      if((mousePressed) && ( mouseX < 510.5 && mouseX >30.5 && mouseY>230.5 && mouseY<810.5) && (aShapeSelector==1)){
+      if((mousePressed) && ( mouseX < agameborderfiveSec && mouseX >aborderSec && mouseY>agamebordderhundredandtwentySec && mouseY<abordereightSec) && (aShapeSelector==1)){
         line(mouseX, mouseY, pmouseX, pmouseY);
         }
       }  
   //Choosing of programs
-    stroke(0);
-    strokeWeight(5);
+    stroke(aBlack);
+    strokeWeight(aStrokeWeight5);
     if (aMode==false){
         if(aProg==true){            //for void setup objects
-          fill(0,150);
-          rect(agameborderfive,aborder,300,agamesizeone);
+          fill(aBlack,trans2);
+          rect(agameborderfive,aborder,agamesizethree,agamesizeone);
           aProg=false;
           }
-        fill(0,150);                 //for void draw objects
-        rect(agameborderfive,120.5,300,700);
+        fill(aBlack,trans2);                 //for void draw objects
+        rect(agameborderfive,agamebordderhundredandtwenty,agamesizethree,agamesizeSeven);
         }
      if (aMode==true){
         if(aDraw==true){            //for void setup objects
-        fill(0,150);
+        fill(aBlack,trans2);
         rect(aborder,aborder,agamesizefive,agamesizeeight); 
         aDraw=false;
         }
-      fill(zero,150);                 //for void draw objects
+      fill(zero,trans2);                 //for void draw objects
       noStroke();
-      rect(170,160,340,58);
+      rect(aRectVoidX ,aRectVoidY ,aRectVoidW ,aRectVoidH );
       fill(white);
       
       if(game1==true && game2==false){
@@ -454,7 +439,7 @@ void draw(){ //<>//
       fill(#CCD7FC);
       rect(cborder, cborder, cframewh, cframewh);
       // Gameborders
-      textSize(24);
+      textSize(textSize5);
       fill(pink);
       text(cpoint,21,40);
       cpoint = cpoint + 1;
@@ -677,8 +662,8 @@ void mouseClicked(){
   if(game1==true || game2==true){
     if(aMode==false){
       if(mouseX > aBoxDrawResetX && mouseX < aBoxDrawResetX+aBoxWH && mouseY > aBoxDrawResetY && mouseY < aBoxDrawResetX+aBoxWH){
-        fill(255);
-        strokeWeight(5);
+        fill(white);
+        strokeWeight(aStrokeWeight5);
         stroke(zero);
         rect(aCanvasX,aCanvasY,aCanvasW,aCanvasH);
         }
@@ -699,131 +684,131 @@ void mouseReleased (){
   //game 1+2
   if(game1==true || game2==true){
       //Red square
-      if (aBoxProgRedX+20>aBoxProgColor1X && aBoxProgRedX+20<(aBoxProgColor1X+aBoxWH) && aBoxProgRedY+20 >aBoxProgColor1Y && aBoxProgRedY+20<(aBoxProgColor1Y+aBoxWH)) {
+      if (aBoxProgRedX+halfBoxWH>aBoxProgColor1X && aBoxProgRedX+halfBoxWH<(aBoxProgColor1X+aBoxWH) && aBoxProgRedY+halfBoxWH >aBoxProgColor1Y && aBoxProgRedY+halfBoxWH<(aBoxProgColor1Y+aBoxWH)) {
         aColor1=orange;
         aBoxProgRedX=aBoxProgColor1X;
         aBoxProgRedY=aBoxProgColor1Y;
       }
-      if (aBoxProgRedX+20>aBoxProgColor2X && aBoxProgRedX+20<(aBoxProgColor2X+aBoxWH) && aBoxProgRedY+20 >aBoxProgColor2Y && aBoxProgRedY+20<(aBoxProgColor2Y+aBoxWH)) {
+      if (aBoxProgRedX+halfBoxWH>aBoxProgColor2X && aBoxProgRedX+halfBoxWH<(aBoxProgColor2X+aBoxWH) && aBoxProgRedY+halfBoxWH >aBoxProgColor2Y && aBoxProgRedY+halfBoxWH<(aBoxProgColor2Y+aBoxWH)) {
         aColor2=orange;
         aBoxProgRedX=aBoxProgColor2X;
         aBoxProgRedY=aBoxProgColor2Y;
       }
-      if (aBoxProgRedX+20>aBoxProgColor3X && aBoxProgRedX+20<(aBoxProgColor3X+aBoxWH) && aBoxProgRedY+20 >aBoxProgColor3Y && aBoxProgRedY+20<(aBoxProgColor3Y+aBoxWH)) {
+      if (aBoxProgRedX+halfBoxWH>aBoxProgColor3X && aBoxProgRedX+halfBoxWH<(aBoxProgColor3X+aBoxWH) && aBoxProgRedY+halfBoxWH >aBoxProgColor3Y && aBoxProgRedY+halfBoxWH<(aBoxProgColor3Y+aBoxWH)) {
         aColor3=orange;
         aBoxProgRedX=aBoxProgColor3X;
         aBoxProgRedY=aBoxProgColor3Y;
       }
       //Blue square
-       if (aBoxProgBlueX+20>aBoxProgColor1X && aBoxProgBlueX+20<(aBoxProgColor1X+aBoxWH) && aBoxProgBlueY+20 >aBoxProgColor1Y && aBoxProgBlueY+20<(aBoxProgColor1Y+aBoxWH)) {
+       if (aBoxProgBlueX+halfBoxWH>aBoxProgColor1X && aBoxProgBlueX+halfBoxWH<(aBoxProgColor1X+aBoxWH) && aBoxProgBlueY+halfBoxWH >aBoxProgColor1Y && aBoxProgBlueY+halfBoxWH<(aBoxProgColor1Y+aBoxWH)) {
         aColor1=blue;
         aBoxProgBlueX=aBoxProgColor1X;
         aBoxProgBlueY=aBoxProgColor1Y;
       }
-      if (aBoxProgBlueX+20>aBoxProgColor2X && aBoxProgBlueX+20<(aBoxProgColor2X+aBoxWH) && aBoxProgBlueY+20 >aBoxProgColor2Y && aBoxProgBlueY+20<(aBoxProgColor2Y+aBoxWH)) {
+      if (aBoxProgBlueX+halfBoxWH>aBoxProgColor2X && aBoxProgBlueX+halfBoxWH<(aBoxProgColor2X+aBoxWH) && aBoxProgBlueY+halfBoxWH >aBoxProgColor2Y && aBoxProgBlueY+halfBoxWH<(aBoxProgColor2Y+aBoxWH)) {
         aColor2=blue;
         aBoxProgBlueX=aBoxProgColor2X;
         aBoxProgBlueY=aBoxProgColor2Y;
       }
-      if (aBoxProgBlueX+20>aBoxProgColor3X && aBoxProgBlueX+20<(aBoxProgColor3X+aBoxWH) && aBoxProgBlueY+20 >aBoxProgColor3Y && aBoxProgBlueY+20<(aBoxProgColor3Y+aBoxWH)) {
+      if (aBoxProgBlueX+halfBoxWH>aBoxProgColor3X && aBoxProgBlueX+halfBoxWH<(aBoxProgColor3X+aBoxWH) && aBoxProgBlueY+halfBoxWH >aBoxProgColor3Y && aBoxProgBlueY+halfBoxWH<(aBoxProgColor3Y+aBoxWH)) {
         aColor3=blue;
         aBoxProgBlueX=aBoxProgColor3X;
         aBoxProgBlueY=aBoxProgColor3Y;
       }
       //Green square
-      if (aBoxProgGreenX+20>aBoxProgColor1X && aBoxProgGreenX+20<(aBoxProgColor1X+aBoxWH) && aBoxProgGreenY+20 >aBoxProgColor1Y && aBoxProgGreenY+20<(aBoxProgColor1Y+aBoxWH)) {
+      if (aBoxProgGreenX+halfBoxWH>aBoxProgColor1X && aBoxProgGreenX+halfBoxWH<(aBoxProgColor1X+aBoxWH) && aBoxProgGreenY+halfBoxWH >aBoxProgColor1Y && aBoxProgGreenY+halfBoxWH<(aBoxProgColor1Y+aBoxWH)) {
         aColor1=pink;
         aBoxProgGreenX=aBoxProgColor1X;
         aBoxProgGreenY=aBoxProgColor1Y;
       }
-      if (aBoxProgGreenX+20>aBoxProgColor2X && aBoxProgGreenX+20<(aBoxProgColor2X+aBoxWH) && aBoxProgGreenY+20 >aBoxProgColor2Y && aBoxProgGreenY+20<(aBoxProgColor2Y+aBoxWH)) {
+      if (aBoxProgGreenX+halfBoxWH>aBoxProgColor2X && aBoxProgGreenX+halfBoxWH<(aBoxProgColor2X+aBoxWH) && aBoxProgGreenY+halfBoxWH >aBoxProgColor2Y && aBoxProgGreenY+halfBoxWH<(aBoxProgColor2Y+aBoxWH)) {
         aColor2=pink;
         aBoxProgGreenX=aBoxProgColor2X;
         aBoxProgGreenY=aBoxProgColor2Y;
       }
-      if (aBoxProgGreenX+20>aBoxProgColor3X && aBoxProgGreenX+20<(aBoxProgColor3X+aBoxWH) && aBoxProgGreenY+20 >aBoxProgColor3Y && aBoxProgGreenY+20<(aBoxProgColor3Y+aBoxWH)) {
+      if (aBoxProgGreenX+halfBoxWH>aBoxProgColor3X && aBoxProgGreenX+halfBoxWH<(aBoxProgColor3X+aBoxWH) && aBoxProgGreenY+halfBoxWH >aBoxProgColor3Y && aBoxProgGreenY+halfBoxWH<(aBoxProgColor3Y+aBoxWH)) {
         aColor3=pink;
         aBoxProgGreenX=aBoxProgColor3X;
         aBoxProgGreenY=aBoxProgColor3Y;
       }
       //Stroke 1
-      if (aStrokeSize1X > aBoxProgStroke1X && aStrokeSize1X < aBoxProgStroke1X + aBoxWH && aStrokeSize1Y1 +20  > aBoxProgStroke1Y && aStrokeSize1Y2 - 20 < aBoxProgStroke1Y +aBoxWH){
+      if (aStrokeSize1X > aBoxProgStroke1X && aStrokeSize1X < aBoxProgStroke1X + aBoxWH && aStrokeSize1Y1 +halfBoxWH  > aBoxProgStroke1Y && aStrokeSize1Y2 - halfBoxWH < aBoxProgStroke1Y +aBoxWH){
       aStrokeDraw1=aStrokeWeight1;
-      aStrokeSize1X=aBoxProgStroke1X+20;
+      aStrokeSize1X=aBoxProgStroke1X+halfBoxWH;
       aStrokeSize1Y1=aBoxProgStroke1Y;
       aStrokeSize1Y2=aBoxProgStroke1Y+aBoxWH;
       }
-      if (aStrokeSize1X > aBoxProgStroke2X && aStrokeSize1X < aBoxProgStroke2X + aBoxWH && aStrokeSize1Y1 +20  > aBoxProgStroke2Y && aStrokeSize1Y2 - 20 < aBoxProgStroke2Y +aBoxWH){
+      if (aStrokeSize1X > aBoxProgStroke2X && aStrokeSize1X < aBoxProgStroke2X + aBoxWH && aStrokeSize1Y1 +halfBoxWH  > aBoxProgStroke2Y && aStrokeSize1Y2 - halfBoxWH < aBoxProgStroke2Y +aBoxWH){
       aStrokeDraw2=aStrokeWeight1;
-      aStrokeSize1X=aBoxProgStroke2X+20;
+      aStrokeSize1X=aBoxProgStroke2X+halfBoxWH;
       aStrokeSize1Y1=aBoxProgStroke2Y;
       aStrokeSize1Y2=aBoxProgStroke2Y+aBoxWH;
       }
-      if (aStrokeSize1X > aBoxProgStroke3X && aStrokeSize1X < aBoxProgStroke3X + aBoxWH && aStrokeSize1Y1 +20  > aBoxProgStroke3Y && aStrokeSize1Y2 - 20 < aBoxProgStroke3Y +aBoxWH){
+      if (aStrokeSize1X > aBoxProgStroke3X && aStrokeSize1X < aBoxProgStroke3X + aBoxWH && aStrokeSize1Y1 +halfBoxWH  > aBoxProgStroke3Y && aStrokeSize1Y2 - halfBoxWH < aBoxProgStroke3Y +aBoxWH){
       aStrokeDraw3=aStrokeWeight1;
-      aStrokeSize1X=aBoxProgStroke3X+20;
+      aStrokeSize1X=aBoxProgStroke3X+halfBoxWH;
       aStrokeSize1Y1=aBoxProgStroke3Y;
       aStrokeSize1Y2=aBoxProgStroke3Y+aBoxWH;
       }
       //Stroke 5
-      if (aStrokeSize5X > aBoxProgStroke1X && aStrokeSize5X < aBoxProgStroke1X + aBoxWH && aStrokeSize5Y1 +20  > aBoxProgStroke1Y && aStrokeSize5Y2 - 20 < aBoxProgStroke1Y +aBoxWH){
+      if (aStrokeSize5X > aBoxProgStroke1X && aStrokeSize5X < aBoxProgStroke1X + aBoxWH && aStrokeSize5Y1 +halfBoxWH  > aBoxProgStroke1Y && aStrokeSize5Y2 - halfBoxWH < aBoxProgStroke1Y +aBoxWH){
       aStrokeDraw1=aStrokeWeight5;
-      aStrokeSize5X=aBoxProgStroke1X+20;
+      aStrokeSize5X=aBoxProgStroke1X+halfBoxWH;
       aStrokeSize5Y1=aBoxProgStroke1Y;
       aStrokeSize5Y2=aBoxProgStroke1Y+aBoxWH;
       }
-      if (aStrokeSize5X > aBoxProgStroke2X && aStrokeSize5X < aBoxProgStroke2X + aBoxWH && aStrokeSize5Y1 +20  > aBoxProgStroke2Y && aStrokeSize5Y2 - 20 < aBoxProgStroke2Y +aBoxWH){
+      if (aStrokeSize5X > aBoxProgStroke2X && aStrokeSize5X < aBoxProgStroke2X + aBoxWH && aStrokeSize5Y1 +halfBoxWH  > aBoxProgStroke2Y && aStrokeSize5Y2 - halfBoxWH < aBoxProgStroke2Y +aBoxWH){
       aStrokeDraw2=aStrokeWeight5;
-      aStrokeSize5X=aBoxProgStroke2X+20;
+      aStrokeSize5X=aBoxProgStroke2X+halfBoxWH;
       aStrokeSize5Y1=aBoxProgStroke2Y;
       aStrokeSize5Y2=aBoxProgStroke2Y+aBoxWH;
       }
-      if (aStrokeSize5X > aBoxProgStroke3X && aStrokeSize5X < aBoxProgStroke3X + aBoxWH && aStrokeSize5Y1 +20  > aBoxProgStroke3Y && aStrokeSize5Y2 - 20 < aBoxProgStroke3Y +aBoxWH){
+      if (aStrokeSize5X > aBoxProgStroke3X && aStrokeSize5X < aBoxProgStroke3X + aBoxWH && aStrokeSize5Y1 +halfBoxWH  > aBoxProgStroke3Y && aStrokeSize5Y2 - halfBoxWH < aBoxProgStroke3Y +aBoxWH){
       aStrokeDraw3=aStrokeWeight5;
-      aStrokeSize5X=aBoxProgStroke3X+20;
+      aStrokeSize5X=aBoxProgStroke3X+halfBoxWH;
       aStrokeSize5Y1=aBoxProgStroke3Y;
       aStrokeSize5Y2=aBoxProgStroke3Y+aBoxWH;
       }
       //Stroke 10
-      if (aStrokeSize10X > aBoxProgStroke1X && aStrokeSize10X < aBoxProgStroke1X + aBoxWH && aStrokeSize10Y1 +20  > aBoxProgStroke1Y && aStrokeSize10Y2 - 20 < aBoxProgStroke1Y +aBoxWH){
+      if (aStrokeSize10X > aBoxProgStroke1X && aStrokeSize10X < aBoxProgStroke1X + aBoxWH && aStrokeSize10Y1 +halfBoxWH  > aBoxProgStroke1Y && aStrokeSize10Y2 - halfBoxWH < aBoxProgStroke1Y +aBoxWH){
       aStrokeDraw1=aStrokeWeight10;
-      aStrokeSize10X=aBoxProgStroke1X+20;
+      aStrokeSize10X=aBoxProgStroke1X+halfBoxWH;
       aStrokeSize10Y1=aBoxProgStroke1Y;
       aStrokeSize10Y2=aBoxProgStroke1Y+aBoxWH;
       }
-      if (aStrokeSize10X > aBoxProgStroke2X && aStrokeSize10X < aBoxProgStroke2X + aBoxWH && aStrokeSize10Y1 +20  > aBoxProgStroke2Y && aStrokeSize10Y2 - 20 < aBoxProgStroke2Y +aBoxWH){
+      if (aStrokeSize10X > aBoxProgStroke2X && aStrokeSize10X < aBoxProgStroke2X + aBoxWH && aStrokeSize10Y1 +halfBoxWH  > aBoxProgStroke2Y && aStrokeSize10Y2 - halfBoxWH < aBoxProgStroke2Y +aBoxWH){
       aStrokeDraw2=aStrokeWeight10;
-      aStrokeSize10X=aBoxProgStroke2X+20;
+      aStrokeSize10X=aBoxProgStroke2X+halfBoxWH;
       aStrokeSize10Y1=aBoxProgStroke2Y;
       aStrokeSize10Y2=aBoxProgStroke2Y+aBoxWH;
       }
-      if (aStrokeSize10X > aBoxProgStroke3X && aStrokeSize10X < aBoxProgStroke3X + aBoxWH && aStrokeSize10Y1 +20  > aBoxProgStroke3Y && aStrokeSize10Y2 - 20 < aBoxProgStroke3Y +aBoxWH){
+      if (aStrokeSize10X > aBoxProgStroke3X && aStrokeSize10X < aBoxProgStroke3X + aBoxWH && aStrokeSize10Y1 +halfBoxWH  > aBoxProgStroke3Y && aStrokeSize10Y2 - halfBoxWH < aBoxProgStroke3Y +aBoxWH){
       aStrokeDraw3=aStrokeWeight10;
-      aStrokeSize10X=aBoxProgStroke3X+20;
+      aStrokeSize10X=aBoxProgStroke3X+halfBoxWH;
       aStrokeSize10Y1=aBoxProgStroke3Y;
       aStrokeSize10Y2=aBoxProgStroke3Y+aBoxWH;
       }
       //Stroke 15
-      if (aStrokeSize15X > aBoxProgStroke1X && aStrokeSize15X < aBoxProgStroke1X + aBoxWH && aStrokeSize15Y1 +20  > aBoxProgStroke1Y && aStrokeSize15Y2 - 20 < aBoxProgStroke1Y +aBoxWH){
+      if (aStrokeSize15X > aBoxProgStroke1X && aStrokeSize15X < aBoxProgStroke1X + aBoxWH && aStrokeSize15Y1 +halfBoxWH  > aBoxProgStroke1Y && aStrokeSize15Y2 - halfBoxWH < aBoxProgStroke1Y +aBoxWH){
       aStrokeDraw1=aStrokeWeight15;
-      aStrokeSize15X=aBoxProgStroke1X+20;
+      aStrokeSize15X=aBoxProgStroke1X+halfBoxWH;
       aStrokeSize15Y1=aBoxProgStroke1Y;
       aStrokeSize15Y2=aBoxProgStroke1Y+aBoxWH;
       }
-      if (aStrokeSize15X > aBoxProgStroke2X && aStrokeSize15X < aBoxProgStroke2X + aBoxWH && aStrokeSize15Y1 +20  > aBoxProgStroke2Y && aStrokeSize15Y2 - 20 < aBoxProgStroke2Y +aBoxWH){
+      if (aStrokeSize15X > aBoxProgStroke2X && aStrokeSize15X < aBoxProgStroke2X + aBoxWH && aStrokeSize15Y1 +halfBoxWH  > aBoxProgStroke2Y && aStrokeSize15Y2 - halfBoxWH < aBoxProgStroke2Y +aBoxWH){
       aStrokeDraw2=aStrokeWeight15;
-      aStrokeSize15X=aBoxProgStroke2X+20;
+      aStrokeSize15X=aBoxProgStroke2X+halfBoxWH;
       aStrokeSize15Y1=aBoxProgStroke2Y;
       aStrokeSize15Y2=aBoxProgStroke2Y+aBoxWH;
       }
-      if (aStrokeSize15X > aBoxProgStroke3X && aStrokeSize15X < aBoxProgStroke3X + aBoxWH && aStrokeSize15Y1 +20  > aBoxProgStroke3Y && aStrokeSize15Y2 - 20 < aBoxProgStroke3Y +aBoxWH){
+      if (aStrokeSize15X > aBoxProgStroke3X && aStrokeSize15X < aBoxProgStroke3X + aBoxWH && aStrokeSize15Y1 +halfBoxWH  > aBoxProgStroke3Y && aStrokeSize15Y2 - halfBoxWH < aBoxProgStroke3Y +aBoxWH){
       aStrokeDraw3=aStrokeWeight15;
-      aStrokeSize15X=aBoxProgStroke3X+20;
+      aStrokeSize15X=aBoxProgStroke3X+halfBoxWH;
       aStrokeSize15Y1=aBoxProgStroke3Y;
       aStrokeSize15Y2=aBoxProgStroke3Y+aBoxWH;
       }
       //Rect
-      if (aShapeRectProgX > aBoxShapeProgX - 20 && aShapeRectProgX + aShapeWH  < aBoxShapeProgX + aBoxWH + 20 && aShapeRectProgY  > aBoxShapeProgY - 20 && aShapeRectProgY + aShapeWH < aBoxShapeProgY +aBoxWH + 20){
+      if (aShapeRectProgX > aBoxShapeProgX - halfBoxWH && aShapeRectProgX + aShapeWH  < aBoxShapeProgX + aBoxWH + halfBoxWH && aShapeRectProgY  > aBoxShapeProgY - halfBoxWH && aShapeRectProgY + aShapeWH < aBoxShapeProgY +aBoxWH + halfBoxWH){
       aShapeSelectorProg=3;
       aShapeRectProgX=aBoxShapeProgX+5;
       aShapeRectProgY=aBoxShapeProgY+5;
@@ -831,8 +816,8 @@ void mouseReleased (){
       //ellipse
       if (aShapeEllipseProgX > aBoxShapeProgX  && aShapeEllipseProgX < aBoxShapeProgX + aBoxWH && aShapeEllipseProgY  > aBoxShapeProgY && aShapeEllipseProgY< aBoxShapeProgY +aBoxWH ){
       aShapeSelectorProg=2;
-      aShapeEllipseProgX=aBoxShapeProgX+20;
-      aShapeEllipseProgY=aBoxShapeProgY+20;
+      aShapeEllipseProgX=aBoxShapeProgX+halfBoxWH;
+      aShapeEllipseProgY=aBoxShapeProgY+halfBoxWH;
       }
         // Drawing Correct Color 
         if (aColor==1){
