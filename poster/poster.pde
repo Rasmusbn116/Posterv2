@@ -55,7 +55,17 @@ color white = color(255);
  
  int zero = 0;
  
-
+ // image sizes and positions
+ 
+ int Dpos1 = 300;
+ int Dpos2 = 900;
+ int Dpos3 = 310;
+ int Dpos4 = 401;
+ int Dpos5 = 200;
+ int Dpos6 = 810; 
+ 
+ 
+ //border positions
  
 void setup(){ //<>//
   //load pictures/fonts
@@ -513,15 +523,15 @@ void draw(){ //<>//
           
           textSize(40);
           fill(pink);
-          text("Congratulations! We won!",dtextpos1,300);
+          text("Congratulations! We won!",dtextpos1,Dpos1);
           
-          if (boxpos1x >= 310){  
+          if (boxpos1x >= Dpos3){  
             dtextpos1--;
           }
           String dtext2 = "Now please, take a look at the job opportunities";
           
-          text(dtext2,dtextpos2,300,300,200);
-          if (boxpos1x == 401){
+          text(dtext2,dtextpos2,Dpos1,Dpos1,Dpos5);
+          if (boxpos1x == Dpos4){
             dtextpos2+=4;
             
           if (dtextpos2 >=agamesizeone)
@@ -571,21 +581,21 @@ void draw(){ //<>//
             dtextpos1 += dThousand;
             dtextpos2 -= dThousand;}
           
-          if (flowstart11 >900){
+          if (flowstart11 >Dpos2){
             boxpos1x -= dThousand; }
           image(dglass,boxpos3x,boxpos1y);  
           
           if (boxpos1x<zero){
             boxpos3x-=3;}
             
-          if (boxpos3x <=300){
+          if (boxpos3x <=Dpos1){
             boxpos3x+=3;}
             
           textSize(32);
           fill(pink);
-          text("Doesn't that sound amazing?",dtextpos8,300);
+          text("Doesn't that sound amazing?",dtextpos8,Dpos1);
           
-          if (boxpos3x <= 810){  
+          if (boxpos3x <= Dpos6){  
               dtextpos8-=3;
               }
           }        
