@@ -116,7 +116,7 @@ void draw(){ //<>//
       (aMode==false){
       image(imgGame2BG, zero, zero);
       }
-    strokeWeight(5);
+    strokeWeight(aStrokeWeight5);
     fill(white);
     rect(aborder,aborder,agamesizeeight,agamesizeeight);
     rect(agameborderfive,aborder,agamesizethree,agamesizeeight);
